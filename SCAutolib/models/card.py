@@ -8,6 +8,8 @@ and system configuration.
 """
 
 
+from __future__ import annotations
+
 import json
 import re
 import time
@@ -323,7 +325,7 @@ class VirtualCard(Card):
         self._softhsm2_conf = softhsm2_conf if softhsm2_conf \
             else Path(self.card_dir, "softhsm2.conf")
 
-    def __call__(self, insert: bool = False) -> VirtualCard:
+    def __call__(self, insert: bool = False):
         """
         Enable the object to be used within a context manager.
 
@@ -339,7 +341,7 @@ class VirtualCard(Card):
             self.insert()
         return self
 
-    def __enter__(self) -> VirtualCard:
+    def __enter__(self):
         """
         Enter the context manager and verify the service exists.
 
@@ -504,7 +506,7 @@ class VirtualCard(Card):
             self.remove()
             raise e
 
-    def create(self) -> VirtualCard:
+    def create(self):
         """
         Create components for the virtual card.
 
@@ -676,7 +678,7 @@ class PhysicalCard(Card):
         self._set_label()
         self.removinator.remove_card()
 
-    def __call__(self, insert: bool = False) -> PhysicalCard:
+    def __call__(self, insert: bool = False):
         """
         Allow the card object to be called for context management.
 
@@ -691,7 +693,7 @@ class PhysicalCard(Card):
             self.insert()
         return self
 
-    def __enter__(self) -> PhysicalCard:
+    def __enter__(self):
         """
         Enter the context manager and login to the card.
 

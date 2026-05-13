@@ -8,6 +8,8 @@ creating, modifying, saving, and restoring files.
 """
 
 
+from __future__ import annotations
+
 import os
 from configparser import ConfigParser
 from pathlib import Path
@@ -364,7 +366,7 @@ class SSSDConf(File):
 
     def __call__(
         self, key: str, value: Union[int, str, bool], section: str = None
-    ) -> SSSDConf:
+    ):
         """
         Apply a configuration change and restart SSSD.
 
@@ -393,7 +395,7 @@ class SSSDConf(File):
         run("systemctl restart sssd", sleep=10)
         return self
 
-    def __enter__(self) -> SSSDConf:
+    def __enter__(self):
         """
         Enter the context manager and capture the current state.
 

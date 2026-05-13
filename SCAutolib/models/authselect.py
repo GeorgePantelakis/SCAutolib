@@ -7,6 +7,8 @@ profiles are properly applied and restored to their original state.
 """
 
 
+from __future__ import annotations
+
 from os.path import exists
 
 from traceback import format_exc
@@ -119,7 +121,7 @@ class Authselect:
                 "Backup file not found. _restore method was"
                 "probably called in unexpected manner.")
 
-    def __enter__(self) -> Authselect:
+    def __enter__(self):
         """
         Enter the Authselect context manager.
 
