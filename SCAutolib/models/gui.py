@@ -8,6 +8,8 @@ automated test sequences with logging and visual verification.
 """
 
 
+from __future__ import annotations
+
 import inspect
 from time import sleep, time
 from pathlib import Path
@@ -443,7 +445,7 @@ class GUI:
         self.screenshot = screenshot
         self.check_difference = check_difference
 
-    def __enter__(self) -> GUI:
+    def __enter__(self):
         """
         Enter the GUI context and restart the display manager.
 

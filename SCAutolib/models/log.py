@@ -7,6 +7,8 @@ a newly generated log line within a specified log file.
 """
 
 
+from __future__ import annotations
+
 from SCAutolib import logger
 from SCAutolib.exceptions import SCAutolibNotFound
 from contextlib import contextmanager

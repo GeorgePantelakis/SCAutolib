@@ -7,6 +7,8 @@ implements methods for adding and deleting users across platforms.
 """
 
 
+from __future__ import annotations
+
 import json
 import pwd
 import python_freeipa

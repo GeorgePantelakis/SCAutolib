@@ -8,6 +8,8 @@ manage operations like signing, revocation, and system trust stores.
 """
 
 
+from __future__ import annotations
+
 import os
 import re
 import json
